@@ -16,6 +16,10 @@ const divide = (a, b) => {
     return a/b;
 }
 
+const percentage = (a, b) => {
+    return (a / b) * 100;
+}
+
 // variables
 let firstOp ;
 let operator ;
@@ -25,5 +29,5 @@ let secondOp ;
 const operate = (op, num1, num2) => {
 
     add(num1, num2)
-    
+
 }
