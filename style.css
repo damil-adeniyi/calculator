@@ -7,20 +7,23 @@
 
 body {
     background-color: beige;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+/* container design */
 .main-container {
     /* border: 1px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 80%;
     height: 700px;
+    gap: 20px;
 }
 
 .container {
@@ -47,6 +50,7 @@ body {
 
 .title h1 {
     color: #fff;
+    font-size: 42px;
 }
 
 .display h2{
@@ -72,6 +76,7 @@ body {
     flex-grow: 1;
 }
 
+/* button design */
 .btn {
     background-color: gray;
     color: #fff;
@@ -138,3 +143,27 @@ body {
     cursor: pointer;
 }
 
+.mode-cont button {
+    padding: 12px 10px;
+    border: 1px;
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    font-weight: 600;
+}
+
+
+
+
+/* media query */
+@media  (max-width: 760px) {
+    .container {
+    width: 80%;
+}
+}
+
+@media  (min-width: 761px) and (max-width: 1024px){
+    .container {
+    width: 60%;
+}
+}
