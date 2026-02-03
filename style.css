@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    transition: background-color 0.3s, color 0.3s; 
 }
 
 /* container design */
@@ -21,7 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 80%;
+    width: 70%;
     height: 700px;
     gap: 20px;
 }
@@ -32,7 +33,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 40px;
     width: 40%;
     height: 100%;
     background-color: #000;
@@ -40,7 +41,7 @@ body {
 }
 
 .container .display {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 80%;
     height: 20%;
     display: flex;
@@ -48,12 +49,12 @@ body {
     align-items: center;
 }
 
-.title h1 {
+.title  {
     color: #fff;
     font-size: 42px;
 }
 
-.display h2{
+.display {
     font-size: 18px;
     text-align: center;
     color: #fff;
@@ -61,7 +62,7 @@ body {
 }
 
 .container .figures {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -143,13 +144,22 @@ body {
     cursor: pointer;
 }
 
-.mode-cont button {
+.mode {
     padding: 12px 10px;
     border: 1px;
     border-radius: 10px;
     background-color: #000;
     color: #fff;
     font-weight: 600;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.light {
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 

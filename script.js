@@ -26,26 +26,18 @@ let operator = "";
 let secondOp  = ""; 
 
 // html elements
+let container = document.querySelector('.container');
+let title = document.querySelector('.title')
 let display = document.querySelector('.display-value');
+let btn = document.querySelector('.btn');
 let clear = document.querySelector('.btn-c');
 let percent = document.querySelector('.btn-p');
 let addition = document.querySelector('.btn-a');
 let subtraction = document.querySelector('.btn-s');
-let multiplication = document.querySelector('.btn-m')
-let division = document.querySelector('.btn-d')
-// let equal = document.querySelector('.btn-eq')
-// let dot = document.querySelector('.btn-dot')
-// let num1 = document.querySelector('.btn1')
-// let num2 = document.querySelector('.btn2')
-// let num3 = document.querySelector('.btn3')
-// let num4 = document.querySelector('.btn4')
-// let num5 = document.querySelector('.btn5')
-// let num6 = document.querySelector('.btn6')
-// let num7 = document.querySelector('.btn7')
-// let num8 = document.querySelector('.btn8')
-// let num9 = document.querySelector('.btn9')
-// let zero = document.querySelector('.btn0')
-let figures = document.querySelector('.figures')
+let multiplication = document.querySelector('.btn-m');
+let division = document.querySelector('.btn-d');
+let mode = document.querySelector('#mode');
+let figures = document.querySelector('.figures');
 
 const operate = ( num1, op, num2) => {
     if (op === '+') return add(num1, num2);
@@ -89,5 +81,23 @@ figures.addEventListener('click', (e) => {
     }
 })
 
+mode.addEventListener('click', () => {
+    
+     mode.classList.toggle("light")
+     btn.classList.toggle("light")
+     display.classList.toggle("light");
+     title.classList.toggle("light");
+     container.classList.toggle("light")
+     document.body.classList.toggle("light");
+     
 
-console.log(add(22.4, 20));
+  // Save the current state to localStorage
+  if (document.body.classList.contains("")) {
+    localStorage.setItem("theme", "light");
+  } else {
+    localStorage.setItem("theme", "");
+  }
+})
+
+
+
