@@ -83,12 +83,12 @@ body {
     color: #fff;
 }
 
-.btn-a, .btn-m, .btn-s, .btn-d, .btn-r {
+.btn-a, .btn-m, .btn-s, .btn-d, .btn-p {
     background-color: yellow;
     color: #000;
 }
 
-.btn-a:hover, .btn-m:hover, .btn-s:hover, .btn-d:hover, .btn-r:hover {
+.btn-a:hover, .btn-m:hover, .btn-s:hover, .btn-d:hover, .btn-p:hover {
     background-color: rgb(225, 225, 0, 0.8);
     color: #000;
 }
@@ -127,7 +127,7 @@ body {
     cursor: pointer;
 }
 
-.row .btn-dot, .row .btn-eq, .row .btn-a,.row .btn-r {
+.row .btn-dot, .row .btn-eq, .row .btn-a,.row .btn-p {
     border: 1px solid black;
     display: flex;
     margin: 2px 2px;
