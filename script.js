@@ -38,11 +38,12 @@ let multiplication = document.querySelector('.btn-m');
 let division = document.querySelector('.btn-d');
 let mode = document.querySelector('#mode');
 let figures = document.querySelector('.figures');
+let num = document.querySelector('.num');
 
 const operate = ( num1, op, num2) => {
     if (op === '+') return add(num1, num2);
     if (op === '-') return subtract(num1, num2);
-    if (op === '*') return multiplication(num1, num2);
+    if (op === '*') return multiply(num1, num2);
     if (op === '/') return divide(num1, num2);
     if (op === '%') return percentage(num1, num2);
 
@@ -59,44 +60,59 @@ figures.addEventListener('click', (e) => {
     if(e.target.matches('.num')) {
         firstOp += e.target.innerText
         display.innerText = firstOp;  
+
+         console.log(e.target.innerText);
     }
 
     if(e.target.matches('.btn-p, .btn-a, .btn-s, .btn-m, .btn-d')) {
-        if (firstOp === "") return;
+        if (firstOp === "") {
+            display.innerText = "";
+            return;};
 
         secondOp = firstOp;
         operator = e.target.innerText; 
         firstOp = "";
+
+        console.log(e.target.innerText);
+        
     } 
 
 
     if(e.target.matches('.btn-eq')) {
-        if (secondOp === null || firstOp === "") return;
 
+        
+
+        if (secondOp === null || firstOp === "") return;
+        // if (typeof secondOp === 'number' || typeof firstOp === 'number') return result;
+        
         const result = operate(parseFloat(secondOp), operator, parseFloat(firstOp));
         display.innerText = result;
 
-        firstOp = result.toString();
-        firstOp = "";
+        firstOp = result;
+        // firstOp = "";
+
+         console.log(display.innerText);
     }
 })
 
+
+// dark mode
 mode.addEventListener('click', () => {
     
      mode.classList.toggle("light")
-     btn.classList.toggle("light")
+    //  btn.classList.toggle("light")
      display.classList.toggle("light");
      title.classList.toggle("light");
      container.classList.toggle("light")
-     document.body.classList.toggle("light");
+     document.body.classList.toggle("light-body");
      
 
   // Save the current state to localStorage
-  if (document.body.classList.contains("")) {
-    localStorage.setItem("theme", "light");
-  } else {
-    localStorage.setItem("theme", "");
-  }
+//   if (document.body.classList.contains("")) {
+//     localStorage.setItem("theme", "light");
+//   } else {
+//     localStorage.setItem("theme", "");
+//   }
 })
 
 

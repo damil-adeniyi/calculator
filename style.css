@@ -22,7 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 70%;
+    width: 60%;
     height: 700px;
     gap: 20px;
 }
@@ -55,7 +55,7 @@ body {
 }
 
 .display {
-    font-size: 18px;
+    font-size: 24px;
     text-align: center;
     color: #fff;
     
@@ -100,7 +100,7 @@ body {
 }
 
 .row .btn {
-    border: 1px;
+    border: 0px;
     display: flex;
     margin: 2px 2px;
     justify-content: center;
@@ -112,7 +112,7 @@ body {
 }
 
 .row .btn-0{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     margin: 2px 2px;
     justify-content: center;
@@ -123,7 +123,7 @@ body {
 }
 
 .row .btn-c{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     margin: 2px 2px;
     justify-content: center;
@@ -134,7 +134,7 @@ body {
 }
 
 .row .btn-dot, .row .btn-eq, .row .btn-a,.row .btn-p {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     margin: 2px 2px;
     justify-content: center;
@@ -146,20 +146,24 @@ body {
 
 .mode {
     padding: 12px 10px;
-    border: 1px;
+    /* border: 1px; */
     border-radius: 10px;
     background-color: #000;
-    color: #fff;
+    color: beige;
     font-weight: 600;
     cursor: pointer;
     border: 1px solid black;
 }
 
 .light {
-    background-color: #fff;
+    background-color: beige;
     color: #000;
     font-weight: 600;
     cursor: pointer;
+}
+
+.light-body {
+    background-color: #000;
 }
 
 
@@ -168,12 +172,12 @@ body {
 /* media query */
 @media  (max-width: 760px) {
     .container {
-    width: 80%;
+    width: 85%;
 }
 }
 
 @media  (min-width: 761px) and (max-width: 1024px){
     .container {
-    width: 60%;
+    width: 65%;
 }
 }
