@@ -13,7 +13,12 @@ const multiply = (a, b) => {
 }
 
 const divide = (a, b) => {
-    return a/b;
+    if (b === 0) {
+        return 'oops, not possible'
+    } else {
+        return a/b;
+    }
+    
 }
 
 const percentage = (a, b) => {
@@ -21,9 +26,10 @@ const percentage = (a, b) => {
 }
 
 // variables
-let firstOp = ""; 
-let operator = "";  
-let secondOp  = ""; 
+let firstOp = "";
+let secondOp = ""; 
+let operator = null;  
+let waitingForSecond = false;
 
 // html elements
 let container = document.querySelector('.container');
@@ -50,50 +56,76 @@ const operate = ( num1, op, num2) => {
 }
 
 figures.addEventListener('click', (e) => {
-    if(e.target.matches('.btn-c')) {
-        display.innerText = " "; 
-        firstOp = ""; 
-        operator = "";  
-        secondOp  = ""; 
-    } 
 
-    if(e.target.matches('.num')) {
-        firstOp += e.target.innerText
-        display.innerText = firstOp;  
+  /* CLEAR */
+  if (e.target.matches('.btn-c')) {
+    display.innerText = "";
+    firstOp = "";
+    operator = null;
+    waitingForSecond = false;
+    return;
+  }
 
-         console.log(e.target.innerText);
+  /* NUMBER */
+  if (e.target.matches('.num')) {
+    if (waitingForSecond) {
+      display.innerText = "";
+      waitingForSecond = false;
     }
 
-    if(e.target.matches('.btn-p, .btn-a, .btn-s, .btn-m, .btn-d')) {
-        if (firstOp === "") {
-            display.innerText = "";
-            return;};
-
-        secondOp = firstOp;
-        operator = e.target.innerText; 
-        firstOp = "";
-
-        console.log(e.target.innerText);
-        
-    } 
+    display.innerText += e.target.innerText;
+    firstOp = display.innerText;
+    return;
+  }
 
 
-    if(e.target.matches('.btn-eq')) {
+  /* OPERATOR */
+  if (e.target.matches('.btn-p, .btn-a, .btn-s, .btn-m, .btn-d')) {
 
-        
-
-        if (secondOp === null || firstOp === "") return;
-        // if (typeof secondOp === 'number' || typeof firstOp === 'number') return result;
-        
-        const result = operate(parseFloat(secondOp), operator, parseFloat(firstOp));
-        display.innerText = result;
-
-        firstOp = result;
-        // firstOp = "";
-
-         console.log(display.innerText);
+    if (operator !== null && !waitingForSecond) {
+      // chain calculation
+      const result = operate(
+        parseFloat(secondOp),
+        operator,
+        parseFloat(firstOp)
+      );
+      display.innerText = parseFloat(result.toFixed(2));
+      firstOp = parseFloat(result.toFixed(2));
     }
-})
+
+    operator = e.target.innerText;
+    secondOp = firstOp;
+    waitingForSecond = true;
+    return;
+  }
+
+  /* EQUALS */
+  if (e.target.matches('.btn-eq')) {
+    if (operator === null || waitingForSecond) return;
+
+    const result = operate(
+      parseFloat(secondOp),
+      operator,
+      parseFloat(firstOp)
+    );
+
+    display.innerText = parseFloat(result.toFixed(2));
+    firstOp = parseFloat(result.toFixed(2));
+    operator = null;
+    waitingForSecond = true;
+  }
+
+     /* backspace */
+  if (e.target.matches('.btn-b')) {
+    // if (waitingForSecond) return
+        display.innerText = display.innerText.slice(0, -1);
+        firstOp = display.innerText;
+
+    console.log(display.innerText);
+    return;
+  }
+});
+
 
 
 // dark mode
@@ -107,12 +139,6 @@ mode.addEventListener('click', () => {
      document.body.classList.toggle("light-body");
      
 
-  // Save the current state to localStorage
-//   if (document.body.classList.contains("")) {
-//     localStorage.setItem("theme", "light");
-//   } else {
-//     localStorage.setItem("theme", "");
-//   }
 })
 
 

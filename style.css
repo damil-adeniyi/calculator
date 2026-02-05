@@ -51,11 +51,11 @@ body {
 
 .title  {
     color: #fff;
-    font-size: 42px;
+    font-size: 48px;
 }
 
 .display {
-    font-size: 24px;
+    font-size: 36px;
     text-align: center;
     color: #fff;
     
@@ -81,7 +81,7 @@ body {
 .btn {
     background-color: gray;
     color: #fff;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .btn:hover{
@@ -89,12 +89,12 @@ body {
     color: #fff;
 }
 
-.btn-a, .btn-m, .btn-s, .btn-d, .btn-p {
+.btn-a, .btn-m, .btn-s, .btn-d, .btn-p, .row .btn-b {
     background-color: yellow;
     color: #000;
 }
 
-.btn-a:hover, .btn-m:hover, .btn-s:hover, .btn-d:hover, .btn-p:hover {
+.btn-a:hover, .btn-m:hover, .btn-s:hover, .btn-d:hover, .btn-p:hover, .row .btn-b:hover {
     background-color: rgb(225, 225, 0, 0.8);
     color: #000;
 }
@@ -106,9 +106,9 @@ body {
     justify-content: center;
     align-items: center;
     width: 33%;
-    font-weight: 600;
+    font-weight: 800;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 30px;
 }
 
 .row .btn-0{
@@ -122,18 +122,18 @@ body {
     cursor: pointer;
 }
 
-.row .btn-c{
+ .row .btn-c{
     /* border: 1px solid black; */
     display: flex;
     margin: 2px 2px;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 25%;
     font-weight: 600;
     cursor: pointer;
 }
 
-.row .btn-dot, .row .btn-eq, .row .btn-a,.row .btn-p {
+.row .btn-dot, .row .btn-eq, .row .btn-a,.row .btn-p, .row .btn-b {
     /* border: 1px solid black; */
     display: flex;
     margin: 2px 2px;
@@ -145,7 +145,7 @@ body {
 }
 
 .mode {
-    padding: 12px 10px;
+    padding: 12px 16px;
     /* border: 1px; */
     border-radius: 10px;
     background-color: #000;
@@ -172,7 +172,7 @@ body {
 /* media query */
 @media  (max-width: 760px) {
         .main-container {
-    width: 70%;
+    width: 80%;
 }
 
     .container {
