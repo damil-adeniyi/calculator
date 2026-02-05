@@ -34,7 +34,7 @@ let waitingForSecond = false;
 // html elements
 let container = document.querySelector('.container');
 let title = document.querySelector('.title')
-let display = document.querySelector('.display-value');
+let display = document.querySelector('#display-value');
 let btn = document.querySelector('.btn');
 let clear = document.querySelector('.btn-c');
 let percent = document.querySelector('.btn-p');
@@ -59,7 +59,7 @@ figures.addEventListener('click', (e) => {
 
   /* CLEAR */
   if (e.target.matches('.btn-c')) {
-    display.innerText = "";
+    display.value = "";
     firstOp = "";
     operator = null;
     waitingForSecond = false;
@@ -69,12 +69,16 @@ figures.addEventListener('click', (e) => {
   /* NUMBER */
   if (e.target.matches('.num')) {
     if (waitingForSecond) {
-      display.innerText = "";
+      display.value = "";
       waitingForSecond = false;
     }
 
-    display.innerText += e.target.innerText;
-    firstOp = display.innerText;
+    display.value += e.target.innerText;
+    firstOp = display.value;
+
+
+    console.log(display);
+    
     return;
   }
 
@@ -89,7 +93,7 @@ figures.addEventListener('click', (e) => {
         operator,
         parseFloat(firstOp)
       );
-      display.innerText = parseFloat(result.toFixed(2));
+      display.value = parseFloat(result.toFixed(2));
       firstOp = parseFloat(result.toFixed(2));
     }
 
@@ -109,7 +113,7 @@ figures.addEventListener('click', (e) => {
       parseFloat(firstOp)
     );
 
-    display.innerText = parseFloat(result.toFixed(2));
+    display.value = parseFloat(result.toFixed(2));
     firstOp = parseFloat(result.toFixed(2));
     operator = null;
     waitingForSecond = true;
@@ -118,10 +122,10 @@ figures.addEventListener('click', (e) => {
      /* backspace */
   if (e.target.matches('.btn-b')) {
     // if (waitingForSecond) return
-        display.innerText = display.innerText.slice(0, -1);
-        firstOp = display.innerText;
+        display.value = display.value.slice(0, -1);
+        firstOp = display.value;
 
-    console.log(display.innerText);
+    console.log(display.value);
     return;
   }
 });
@@ -133,7 +137,7 @@ mode.addEventListener('click', () => {
     
      mode.classList.toggle("light")
     //  btn.classList.toggle("light")
-     display.classList.toggle("light");
+     display.classList.toggle("light-input");
      title.classList.toggle("light");
      container.classList.toggle("light")
      document.body.classList.toggle("light-body");
