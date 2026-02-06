@@ -67,7 +67,7 @@ figures.addEventListener('click', (e) => {
   }
 
   /* NUMBER */
-  if (e.target.matches('.num')) {
+  if (e.target.matches('.num, .btn-dot')) {
     if (waitingForSecond) {
       display.value = "";
       waitingForSecond = false;
@@ -77,10 +77,11 @@ figures.addEventListener('click', (e) => {
     firstOp = display.value;
 
 
-    console.log(display);
+    console.log(display.value);
     
     return;
   }
+
 
 
   /* OPERATOR */
@@ -97,8 +98,10 @@ figures.addEventListener('click', (e) => {
       firstOp = parseFloat(result.toFixed(2));
     }
 
+    
     operator = e.target.innerText;
     secondOp = firstOp;
+    display.value = firstOp + operator;
     waitingForSecond = true;
     return;
   }
@@ -113,7 +116,7 @@ figures.addEventListener('click', (e) => {
       parseFloat(firstOp)
     );
 
-    display.value = parseFloat(result.toFixed(2));
+    display.value = secondOp + operator + firstOp + " = " + parseFloat(result.toFixed(2));
     firstOp = parseFloat(result.toFixed(2));
     operator = null;
     waitingForSecond = true;
